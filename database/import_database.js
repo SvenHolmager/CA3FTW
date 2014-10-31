@@ -182,9 +182,4 @@ addData(getCategories(), model.CategoryModel, 5);
 
 
 
-module.exports = {
-    getOrders: getOrders,
-    getAllJokes: getAllJokes,
-    createNew: createNew,
-    getNewest: getNewest
-}
+

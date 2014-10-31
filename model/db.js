@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-
-var dbURI = 'mongodb://localhost/northwind';
+//var dbURI = 'mongodb://localhost/northwind';
+var dbURI = "mongodb://test:test@ds033390.mongolab.com:33390/ca3database";
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', function () {
@@ -49,5 +49,62 @@ var DetailsSchema = mongoose.Schema({
     discount: Number
 });
 
+/** PRODUCT SCHEMA ** * */
+var ProductSchema = mongoose.Schema({
+    _id: Number,
+    name: String,
+    categoryId: Number,
+    quantityPerUnit: String,
+    unitPrice: Number,
+    unitsInStock: Number,
+    unitsOnOrder: Number,
+    reorderLevel: Number,
+    discontinued: Number
+});
+/** CUSTOMER SCHEMA ** * */
+var CustomerSchema = mongoose.Schema({
+    _id: String,
+    companyName: String,
+    contactName: String,
+    contactTitle: String,
+    address: String,
+    city: String,
+    region: String,
+    postalCode: String,
+    country: String,
+    phone: String,
+    fax: String
+});
+
+/** EMPLOYEE SCHEMA ** * */
+var EmployeeSchema = mongoose.Schema({
+    _id: Number,
+    lastName: String,
+    firstName: String,
+    title: String,
+    titleOfCourtesy: String,
+    birthDate: String,
+    hireDate: String,
+    address: String,
+    city: String,
+    region: String,
+    postalCode: String,
+    country: String,
+    homePhone: String,
+    extension: String,
+    notes: String
+});
+
+/** CATEGORY SCHEMA ** * */
+var CategorySchema = mongoose.Schema({
+    _id: Number,
+    name: String,
+    description: String
+});
+
 mongoose.model('Order', OrderSchema);
 mongoose.model('OrderDetail', DetailsSchema);
+mongoose.model('Category', CategorySchema);
+mongoose.model('Product', ProductSchema);
+mongoose.model('Customer', CustomerSchema);
+mongoose.model('Employee', EmployeeSchema);
